@@ -59,6 +59,7 @@ class BrowserViewController: UIViewController {
     
     // Single data source used for all favorites vcs
     let backgroundDataSource = NTPDataSource()
+    static let feedDataSource = FeedDataSource()
     
     var loadQueue = Deferred<Void>()
 
@@ -1082,6 +1083,7 @@ class BrowserViewController: UIViewController {
             let ntpController = NewTabPageViewController(tab: selectedTab,
                                                          profile: profile,
                                                          dataSource: backgroundDataSource,
+                                                         feedDataSource: Self.feedDataSource,
                                                          rewards: rewards)
             ntpController.delegate = self
             selectedTab.newTabPageViewController = ntpController
